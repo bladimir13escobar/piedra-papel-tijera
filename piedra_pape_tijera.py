@@ -2,22 +2,24 @@ import random
 
 
 def jugar():
-    usuario = input("Escoje una opcion 'PI' para piedra, 'PA' papel y 'ti' para tijera. \n").lower()
+    usuario = input("Escoje una opcion 'PI' para piedra, 'PA' papel y 'TI' para tijera. \n").lower()
 
-    computadora = random.choice(["pi", "pa", "pi"])
+    computadora = random.choice(["piedra", "papel", "tijera"])
+
 
     if usuario == computadora:
-        return "¡Empate."
+        return f"la computadora escogio {computadora} ¡Empate."
     
     if gano_el_jugador(usuario, computadora):
-        return "¡Ganaste."
+        return f"la computadora escogio {computadora} ¡Ganaste."
     
-    return "¡Perdiste!"
+    return f"La computadora escogio {computadora} ¡Perdiste!"
+
 
 def gano_el_jugador(jugador, oponente):
-    if ((jugador == "pi" and oponente == "ti")
-        or (jugador == "pa" and oponente == "pi")
-        or (jugador == "ti" and oponente == "pa")):
+    if ((jugador == "piedra" and oponente == "tijera")
+        or (jugador == "papel" and oponente == "piedra")
+        or (jugador == "tijera" and oponente == "papel")):
         return True
     else:
         return False
